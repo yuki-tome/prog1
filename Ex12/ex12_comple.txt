@@ -1,0 +1,7 @@
+gcc -c prog03_2.c
+gcc -c prog03_3.c
+gcc -c prog03_4.c
+gcc -c prog03_5.c
+gcc -c prog03_6.c
+gcc prog03_2.o prog03_3.o prog03_4.o prog03_5.o prog03_6.o
+./a.out

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define N 100
+
+#define TATE 5
+#define YOKO 4
+
+int main()
+{
+  int *arr[TATE],i,j;
+  int buf[100],naga;
+  
+
+  for(i = 0; i < TATE; i++){
+    printf("Input word #%d:",i+1);
+    scanf("%s",buf);
+    naga=strlen(buf);
+    arr[i] = malloc(sizeof(int) * naga);
+    strcpy(arr[i],buf);
+  }
+  
+  for(i = 0; i < TATE; i++)
+    printf("Word #%d: %s\n",i,arr[i]);
+ 
+  for(i = 0; i < TATE; i++) free(arr[i]);
+
+  return 0;
+}
+

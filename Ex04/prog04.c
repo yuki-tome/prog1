@@ -1,0 +1,53 @@
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+     
+    #define N 200 /* ???には 1 単語あたりの最大文字数を指定する */
+     
+    int main()
+    {
+      char dic_file[] = "/home/course/prog1/public_html/2019/ex/ex04/words.txt"; /* ??? には辞書ファイルのパスを指定する。*/
+      FILE *fp;
+     
+      char typein[N]; /* 入力用文字列バッファ */
+      char pickup[N]; /* 辞書単語用文字列バッファ */\
+      int flag;
+     
+      /* 無限ループ */
+      while (1)
+      {
+        printf("Input a word: ");
+     
+        if (scanf("%s", typein) != 1) /* ※１　補足３を参照 */
+          break;
+     
+        /* 辞書の先頭から単語の探索を行うために、新たに単語が入力されるごとに辞書ファイルのオープンとクローズを繰り返す。 */
+        if ((fp = fopen(dic_file, "r")) == NULL)
+        {
+          printf("Failed to open: %s\n", dic_file);
+          exit(2);
+        }
+     
+        /* ここに、辞書内の単語を１つずつ読み込みながら、入力された単語と一致するかをチェックする処理を追加せよ。 */
+
+
+	while(fscanf(fp,"%s",pickup)==1){
+	  if(strcmp(typein,pickup)==0){
+	    printf("The word \"%s \" is found.\n",pickup);
+	    flag=1;
+
+	    break;
+	  }
+	}
+
+	if(flag!=1){
+	  printf("The word \"%s\" is not found.\n",typein);
+	}
+
+     
+        fclose(fp);
+      }
+     
+      printf("\n");
+      return 0;
+    }

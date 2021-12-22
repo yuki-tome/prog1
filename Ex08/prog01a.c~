@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void PrintData1(Record);
+void PrintData2(Record *);
+
+typedef struct{
+  int  id;       /* ID    */
+  char name[20]; /* 名前   */
+  int score;    /* 点数　*/
+  char grade;   /* 成績 */
+} Record;
+
+int main(){
+
+  Record member1={Kondoh 91 A}, member2={Okita 60 };
+
+
+
+  return 0;
+}
+
+void PrintData1(Record){
+
+  printf("%s%d%c",member1.name,member1.score,member1.grade);
+  printf("%s%d%c",member2.name,member2.score,member2.grade);
